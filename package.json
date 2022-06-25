@@ -3,13 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "nodemon server/index.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "flowbite": "^1.4.7",
+    "flowbite-react": "^0.0.27",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "next": "12.1.6",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.18",
+    "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
