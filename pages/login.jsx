@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { TextInput } from 'flowbite-react'
 import axios from 'axios'
 
@@ -9,24 +8,24 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [isCheck, setIsCheck] = useState(false)
 
-    const URL = 'http://localhost:4000/api/login'
-
     const handleLogin = (ev) => {
         setEmail(ev.target.value)
     }
 
     const handleSubmit = async (ev) => {
         ev.preventDefault()
-        
-        await axios.post( URL, { email: email }).then(() => setIsCheck(true))
-    }
 
+        await axios.post('/api/login',{
+            email: email,
+        })
+
+        setIsCheck(true)
+    }
 
   return (
     <div className="container flex justify-center items-center w-screen h-screen mx-auto">
         <Head>
             <title>Login</title>
-            {/* <Link rel='icon' href='../public/fa'></Link> */}
         </Head>
         
         { isCheck ? 

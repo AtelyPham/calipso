@@ -3,7 +3,6 @@ const next = require('next')
 const morgan = require("morgan")
 const cors = require("cors")
 const bodyParser = require("body-parser")
-const loginRoutes = require('./routes/index')
 
 const port = parseInt(process.env.PORT, 10) || 4000
 const dev = process.env.NODE_ENV !== 'production'
@@ -17,9 +16,6 @@ app.prepare().then(() => {
     app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" }));
     app.use('/',cors())
     app.use(morgan('common'))
-    
-
-    app.use('/api',loginRoutes);
 
     app.all('*', (req,res) => {
         return handle(req, res)

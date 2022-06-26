@@ -1,11 +1,7 @@
-const nodemailer = require('nodemailer')
-const dotenv = require('dotenv')
-const path = require('path')
-const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
-dotenv.config({
-    path: path.resolve(__dirname, '../.env')
-})
+import nodemailer from 'nodemailer'
+import jwt from 'jsonwebtoken'
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -13,8 +9,8 @@ const transporter = nodemailer.createTransport({
     service: "gmail",
     port: 465,
     auth: {
-      user: 'Your email',
-      pass: 'password app',
+      user: process.env.ACCOUNT_EMAIL,
+      pass: process.env.PASSWORD_APP,
     },
 });
 
@@ -24,11 +20,12 @@ const makeToken = (email) => {
     return jwt.sign({ email, expirationDate }, process.env.JWT_SECRET_KEY);
 };
 
-const sendEmail = (email) => {
+export const sendEmail = (email) => {
+    console.log('Call to sendEmail')
     
     const token = makeToken(email)
 
-    const URL_VERIFY_TOKEN = `http://localhost:4000/api/account?token=${token}`
+    const URL_VERIFY_TOKEN = `http://localhost:4000/api/verify?token=${token}`
     
     const mailOptions = {
         from: `vanthang23032001@gmail.com`,
@@ -45,6 +42,3 @@ const sendEmail = (email) => {
     })
 }
 
-
-
-module.exports = sendEmail;
