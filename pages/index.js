@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import Card from '../components/card/card'
 const Home = () => {
   return (
     <div className=''>
@@ -12,6 +12,7 @@ const Home = () => {
       <h1 className='text-3xl font-bold underline text-indigo-500'>
         Hello world!
       </h1>
+      <Card />
     </div>
   )
 }
