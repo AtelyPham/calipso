@@ -3,7 +3,9 @@ import React from 'react'
 export const MailIcon = props => {
   return (
     <svg
-      className='w-5 h-5 text-gray-500 dark:text-gray-400'
+      className='inline-block w-5 h-5 text-gray-500 dark:text-gray-400'
+      width={20}
+      height={20}
       fill='currentColor'
       viewBox='0 0 20 20'
       xmlns='http://www.w3.org/2000/svg'
