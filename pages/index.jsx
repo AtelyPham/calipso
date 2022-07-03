@@ -1,13 +1,17 @@
+import axios from 'axios';
+import camelcaseKeys from 'camelcase-keys';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import Header from '../components/Header/Header';
-import Input from '../components/Input';
 import { MailIcon } from '../assets';
 import Button from '../components/Button';
+import Header from '../components/Header/Header';
+import { Section } from '../components/homepage';
 import IconButton from '../components/IconButton';
+import Input from '../components/Input';
+import { getMultipleRandom, serializeSectionData } from '../utils';
 
-const Home = () => {
+const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
   return (
     <Fragment>
       <Head>
@@ -16,6 +20,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/** Hero section */}
       <div className="h-screen w-screen relative">
         <video
           className="object-cover h-full w-full absolute"
@@ -123,8 +128,48 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div className="p-16">
+        <Section name="Trending places to visit" data={trendingPlaces} />
+        <Section name="Cities near your place" data={aroundPlaces} />
+        <Section name="Top rating" data={topRatingPlaces} />
+      </div>
     </Fragment>
   );
 };
+
+export async function getStaticProps() {
+  const [placesResp, usersResp] = await Promise.all([
+    axios.get(`${process.env.BASE_URL}/data.json`),
+    axios.get('https://randomuser.me/api/?results=5&inc=picture'),
+  ]);
+
+  const placesData = camelcaseKeys(placesResp.data || [], { deep: true });
+  const usersData = usersResp.data.results || [];
+  const itemPerRow = 4;
+
+  const trendingPlaces = placesData.length
+    ? getMultipleRandom(placesData, itemPerRow)
+    : [];
+  const aroundPlaces = placesData.length
+    ? getMultipleRandom(placesData, itemPerRow)
+    : [];
+  const topRatingPlaces = placesData.length
+    ? getMultipleRandom(placesData, itemPerRow)
+    : [];
+
+  return {
+    props: {
+      trendingPlaces: trendingPlaces.map(p =>
+        serializeSectionData(p, usersData),
+      ),
+      aroundPlaces: aroundPlaces.map(p => serializeSectionData(p, usersData)),
+      topRatingPlaces: topRatingPlaces.map(p =>
+        serializeSectionData(p, usersData),
+      ),
+    },
+    revalidate: 10,
+  };
+}
 
 export default Home;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import data from '../data.json';
+import data from '../public/data.json';
 import { Modal, Scores, GoogleMaps } from '../components';
 import { FcLike } from 'react-icons/fc';
 import { FiShare2 } from 'react-icons/fi';

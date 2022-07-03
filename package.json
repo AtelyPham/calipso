@@ -7,16 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --check {assets,components,lib,pages}/*",
-    "prettier:fix": "prettier --write {assets,components,lib,pages}/*",
+    "prettier": "prettier --check {assets,components,lib,pages,utils}/*",
+    "prettier:fix": "prettier --write {assets,components,lib,pages,utils}/*",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn prettier:fix"
   },
   "dependencies": {
+    "@ngneat/falso": "^6.0.3",
     "@react-google-maps/api": "^2.12.0",
     "axios": "^0.27.2",
+    "camelcase-keys": "^8.0.1",
     "classnames": "^2.3.1",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.0.27",
@@ -26,8 +28,7 @@
     "nodemailer": "^6.7.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
-    "react-stars": "^2.2.5"
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "18.0.0",

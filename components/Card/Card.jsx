@@ -1,11 +1,12 @@
-import React, { useMemo, useState } from 'react';
-import ReactStars from 'react-stars';
-import { IoHeart, IoHeartOutline } from 'react-icons/io5';
-import { MdArrowRightAlt } from 'react-icons/md';
+import classNames from 'classnames';
+import { Rating } from 'flowbite-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
-import classNames from 'classnames';
+import { useMemo } from 'react';
+import { IoHeart, IoHeartOutline } from 'react-icons/io5';
+import { MdArrowRightAlt } from 'react-icons/md';
+import { BsStarFill } from 'react-icons/bs';
 
 const Card = ({
   backgroundUrl,
@@ -18,10 +19,11 @@ const Card = ({
   detailUrl,
 }) => {
   const iconSize = useMemo(() => 32, []);
+  const ratingFloored = Math.floor(rating);
 
   return (
     <div
-      className="flex flex-col justify-between items-center w-1/4 p-2.5 rounded-xl"
+      className="flex flex-col justify-between items-center w-1/5 p-2.5 rounded-xl"
       style={{
         backgroundImage: `url(${backgroundUrl})`,
         backgroundPosition: 'center',
@@ -29,14 +31,26 @@ const Card = ({
       }}
     >
       <div className="flex flex-row justify-between items-center w-full">
-        <ReactStars
-          count={5}
-          value={rating}
-          size={iconSize}
-          edit={false}
-          color1="#fff"
-          color2={'#FCD34D'}
-        />
+        <Rating size="md">
+          {Array(5)
+            .fill()
+            .map((_, idx) => {
+              const isFilled = idx + 1 <= ratingFloored;
+
+              return (
+                <Rating.Star
+                  key={idx}
+                  starIcon={() => (
+                    <BsStarFill
+                      size={iconSize * 0.7}
+                      className={isFilled ? 'text-yellow-300' : 'text-white'}
+                    />
+                  )}
+                  filled={isFilled}
+                />
+              );
+            })}
+        </Rating>
 
         {isFavorited ? (
           <IoHeart size={iconSize} className="text-red-500" />
