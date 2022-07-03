@@ -1,11 +1,19 @@
 import classNames from 'classnames';
 import { Button } from 'flowbite-react';
+import PropTypes from 'prop-types';
 import { CalipsoLogo } from '../CalipsoLogo';
 import styles from './Header.module.css';
 
-export function Header() {
+export function Header(props) {
+  const textClassName = classNames(
+    'text-base font-medium',
+    props.hasVideo
+      ? 'text-gray-200 hover:text-gray-300 active:text-gray-200'
+      : 'text-gray-500 hover:text-gray-700 active:text-gray-500',
+  );
+
   return (
-    <div className={classNames('relative', styles.header)}>
+    <div className={classNames('relative', styles.header, props.className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -14,22 +22,13 @@ export function Header() {
 
           {/** Nav */}
           <nav className="flex space-x-10">
-            <a
-              href="#"
-              className="text-base font-medium text-gray-200 hover:text-gray-300 active:text-gray-200"
-            >
+            <a href="#" className={textClassName}>
               Find Cities
             </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-200 hover:text-gray-300 active:text-gray-200"
-            >
+            <a href="#" className={textClassName}>
               Share Stories
             </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-200 hover:text-gray-300 active:text-gray-200"
-            >
+            <a href="#" className={textClassName}>
               About us
             </a>
           </nav>
@@ -48,4 +47,10 @@ export function Header() {
   );
 }
 
-Header.propTypes = {};
+Header.defaultProps = {
+  hasVideo: true,
+};
+
+Header.propTypes = {
+  hasVideo: PropTypes.bool,
+};

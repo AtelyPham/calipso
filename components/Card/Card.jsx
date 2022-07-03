@@ -23,7 +23,7 @@ const Card = ({
 
   return (
     <div
-      className="flex flex-col justify-between items-center w-1/5 p-2.5 rounded-xl"
+      className="flex flex-col justify-between items-center w-1/5 min-w-[296px] p-2.5 rounded-xl"
       style={{
         backgroundImage: `url(${backgroundUrl})`,
         backgroundPosition: 'center',

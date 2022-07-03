@@ -2195,6 +2195,11 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-hook-pagination@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-hook-pagination/-/react-hook-pagination-1.0.3.tgz#c30392b2374d9bf94f7bd1677d5c8ffb9f4032f4"
+  integrity sha512-37dxvCeRLqcjXh9CysK0FVUDdZTMjBmE65uRC+HYJkLcB+J8rqlXH4T4ay75fzl1MZmaiUxqfpfsgIpV+0a+aA==
+
 react-icons@^4.3.1, react-icons@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
