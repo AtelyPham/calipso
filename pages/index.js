@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Card from '../components/card/card'
+import { Card } from '../components'
+
 const Home = () => {
   return (
     <div className=''>

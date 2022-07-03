@@ -21,7 +21,7 @@ const Card = ({
 
   return (
     <div
-      className='flex flex-col justify-between items-center w-1/4 p-2.5 rounded border border-black'
+      className='flex flex-col justify-between items-center w-1/4 p-2.5 rounded-xl'
       style={{
         backgroundImage: `url(${backgroundUrl})`,
         backgroundPosition: 'center',
@@ -46,12 +46,12 @@ const Card = ({
       </div>
 
       <div className='flex flex-col justify-center items-center my-4'>
-        <h2 className='font-bold text-2xl mt-4 text-white'>Place</h2>
-        <h3 className='font-bold text-lg mb-4 text-white'>City</h3>
+        <h2 className='font-bold text-2xl mt-4 text-white'>{city}</h2>
+        <h3 className='font-semibold text-lg mb-4 text-white'>{country}</h3>
       </div>
 
       <div className='flex flex-row justify-between items-center w-full'>
-        <div className='relative w-10 h-10'>
+        <div className='relative w-12 h-12'>
           <Image
             className='rounded-full border border-gray-100 shadow-sm'
             src={avatarUrl}
@@ -67,8 +67,8 @@ const Card = ({
         </div>
 
         <Link href={detailUrl}>
-          <a className='flex flex-row justify-between items-center border-b border-white text-white text-sm'>
-            Detail <MdArrowRightAlt className='mt-1 ' />
+          <a className='flex flex-row justify-between items-center border-b text-md text-gray-50 border-b-gray-50 hover:text-blue-400 hover:border-b-blue-400'>
+            Detail <MdArrowRightAlt size={iconSize * 0.7} className='mt-1 ' />
           </a>
         </Link>
       </div>
