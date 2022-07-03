@@ -66,7 +66,7 @@ const Trending = ({ places }) => {
         <div
           className="list mt-12 grid grid-cols-4 gap-6"
           ref={ulElement}
-          style={{ height: '600px', overflow: 'auto' }}
+          style={{ height: '650px', overflow: 'auto' }}
         >
           {data.map((place, idx) => {
             const { longSlug, ...cardProps } = place;
