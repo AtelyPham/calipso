@@ -1,11 +1,10 @@
-import { Footer as FlowbiteFooter } from 'flowbite-react';
 import Link from 'next/link';
 import {
+  BsDribbble,
   BsFacebook,
   BsGithub,
   BsInstagram,
   BsTwitter,
-  BsDribbble,
 } from 'react-icons/bs';
 import { CalipsoLogo } from '../CalipsoLogo';
 
@@ -88,9 +87,9 @@ export const Footer = () => {
                   <a href="#" className="text-gray-500 hover:text-gray-900">
                     <BsGithub className="w-5 h-5" />
                   </a>
-                  <Link href="#">
+                  <a href="#">
                     <BsDribbble className="w-5 h-5" />
-                  </Link>
+                  </a>
                 </div>
               </li>
             </ul>

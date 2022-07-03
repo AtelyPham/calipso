@@ -13,6 +13,7 @@ import { Banner, Section } from '../components/homepage';
 import IconButton from '../components/IconButton';
 import Input from '../components/Input';
 import { getMultipleRandom, serializeSectionData } from '../utils';
+import dataJson from '../public/data.json';
 
 const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
   return (
@@ -177,12 +178,11 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
 };
 
 export async function getStaticProps() {
-  const [placesResp, usersResp] = await Promise.all([
-    axios.get(`${process.env.BASE_URL}/data.json`),
-    axios.get('https://randomuser.me/api/?results=5&inc=picture'),
-  ]);
-
-  const placesData = camelcaseKeys(placesResp.data || [], { deep: true });
+  const usersResp = await axios.get(
+    'https://randomuser.me/api/?results=5&inc=picture',
+  );
+  const placesResp = dataJson;
+  const placesData = camelcaseKeys(placesResp || [], { deep: true });
   const usersData = usersResp.data.results || [];
   const itemPerRow = 4;
 
