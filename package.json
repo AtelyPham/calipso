@@ -12,7 +12,9 @@
     "classnames": "^2.3.1",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-stars": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "18.0.0",
