@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React ,{ useState } from "react";
 import Head from "next/head";
 import data from "../data.json";
 import { Modal, Scores, GoogleMaps } from "../components";
@@ -12,7 +12,7 @@ import {
 } from "react-icons/ai";
 import { Avatar } from "flowbite-react";
 
-const details = () => {
+const Details = () => {
   const [isModal, setIsModal] = useState(false);
   const [imgSrc, setImgSrc] = useState("");
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -218,4 +218,4 @@ const details = () => {
   );
 };
 
-export default details;
+export default Details;
