@@ -1,20 +1,20 @@
-import React ,{ useState } from "react";
-import Head from "next/head";
-import data from "../data.json";
-import { Modal, Scores, GoogleMaps } from "../components";
-import { FcLike } from "react-icons/fc";
-import { FiShare2 } from "react-icons/fi";
+import React, { useState } from 'react';
+import Head from 'next/head';
+import data from '../data.json';
+import { Modal, Scores, GoogleMaps } from '../components';
+import { FcLike } from 'react-icons/fc';
+import { FiShare2 } from 'react-icons/fi';
 import {
   AiFillStar,
   AiFillDollarCircle,
   AiFillCloud,
   AiFillLike,
-} from "react-icons/ai";
-import { Avatar } from "flowbite-react";
+} from 'react-icons/ai';
+import { Avatar } from 'flowbite-react';
 
 const Details = () => {
   const [isModal, setIsModal] = useState(false);
-  const [imgSrc, setImgSrc] = useState("");
+  const [imgSrc, setImgSrc] = useState('');
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const handleClick = (img, index) => {
@@ -32,7 +32,7 @@ const Details = () => {
       return;
     }
     const newIndex = currentIndex + 1;
-    const newURL = data.filter((item) => {
+    const newURL = data.filter(item => {
       return data.indexOf(item) === newIndex;
     });
     const newItem = newURL[0].image;
@@ -50,7 +50,7 @@ const Details = () => {
       return;
     }
     const newIndex = currentIndex - 1;
-    const newURL = data.filter((item) => {
+    const newURL = data.filter(item => {
       return data.indexOf(item) === newIndex;
     });
     const newItem = newURL[0].image;
@@ -61,7 +61,7 @@ const Details = () => {
 
   return (
     <div>
-      <div className={isModal ? "h-screen blur-sm" : "h-screen"}>
+      <div className={isModal ? 'h-screen blur-sm' : 'h-screen'}>
         <Head>
           <title>Details</title>
         </Head>

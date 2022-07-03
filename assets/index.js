@@ -1,1 +1,1 @@
-export * from './MailIcon'
+export * from './MailIcon';

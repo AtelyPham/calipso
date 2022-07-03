@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --check {assets,components,lib,pages}/*",
+    "prettier:fix": "prettier --write {assets,components,lib,pages}/*",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "yarn prettier:fix"
   },
   "dependencies": {
-    "classnames": "^2.3.1",
     "@react-google-maps/api": "^2.12.0",
     "axios": "^0.27.2",
+    "classnames": "^2.3.1",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.0.27",
     "jsonwebtoken": "^8.5.1",
@@ -28,9 +34,12 @@
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
-    "eslint": "8.18.0",
+    "eslint": "^8.19.0",
     "eslint-config-next": "12.1.6",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
     "tailwindcss": "^3.1.4",
     "typescript": "4.7.4"
   }

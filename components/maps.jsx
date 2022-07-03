@@ -1,16 +1,16 @@
-import React from 'react'
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
+import React from 'react';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const GoogleMaps = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_KEY_MAPS,
-  })
+  });
 
   if (!isLoaded) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
-  return <Maps />
-}
+  return <Maps />;
+};
 
 const Maps = () => {
   return (
@@ -26,7 +26,7 @@ const Maps = () => {
     >
       <Marker position={{ lat: -34.397, lng: 150.644 }} />
     </GoogleMap>
-  )
-}
+  );
+};
 
-export default GoogleMaps
+export default GoogleMaps;
