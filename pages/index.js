@@ -12,7 +12,16 @@ const Home = () => {
       <h1 className='text-3xl font-bold underline text-indigo-500'>
         Hello world!
       </h1>
-      <Card />
+      <Card
+        avatarUrl='https://randomuser.me/api/portraits/women/81.jpg'
+        backgroundUrl='https://nomadlist.com/assets/img/places/gran-canaria-canary-islands-spain.jpg'
+        city='Canary Island'
+        country='Spain'
+        detailUrl='http://localhost:3000/place/123'
+        isFavorited={true}
+        isUserOnline={true}
+        rating={4.5}
+      />
     </div>
   )
 }
