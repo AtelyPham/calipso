@@ -14,7 +14,7 @@ import { IoIosSend } from 'react-icons/io';
 import { Footer } from '../components/Footer/Footer';
 import { HiMail } from 'react-icons/hi';
 
-const TopRating = ({ places }) => {
+const MostView = ({ places }) => {
   const fetchSize = 12;
   const limit = places.length;
   const ulElement = useRef();
@@ -54,14 +54,14 @@ const TopRating = ({ places }) => {
   return (
     <Fragment>
       <Head>
-        <title>Top rating places</title>
+        <title>Most view places</title>
       </Head>
 
       <Header hasVideo={false} />
 
       {/** Page content */}
       <div className="p-16">
-        <Tabs active="top-rating" />
+        <Tabs active="most-view" />
 
         <div
           className="list mt-12 grid grid-cols-4 gap-6"
@@ -132,4 +132,4 @@ export async function getStaticProps() {
   };
 }
 
-export default TopRating;
+export default MostView;
