@@ -1,12 +1,15 @@
 import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
+import { TextInput, Button } from 'flowbite-react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Fragment } from 'react';
+import { HiMail } from 'react-icons/hi';
+import { IoIosSend } from 'react-icons/io';
 import { MailIcon } from '../assets';
-import Button from '../components/Button';
-import Header from '../components/Header/Header';
-import { Section } from '../components/homepage';
+import { Footer } from '../components/Footer/Footer';
+import { Header } from '../components/Header';
+import { Banner, Section } from '../components/homepage';
 import IconButton from '../components/IconButton';
 import Input from '../components/Input';
 import { getMultipleRandom, serializeSectionData } from '../utils';
@@ -51,7 +54,12 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
             />
           </div>
           <Input id="email" leadingIcon={<MailIcon />} />
-          <Button className="w-full">Login</Button>
+          <button
+            type="button"
+            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full"
+          >
+            Login
+          </button>
         </div>
 
         {/** Find city */}
@@ -133,7 +141,37 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
         <Section name="Trending places to visit" data={trendingPlaces} />
         <Section name="Cities near your place" data={aroundPlaces} />
         <Section name="Top rating" data={topRatingPlaces} />
+
+        <Banner />
       </div>
+
+      {/** Newsletter */}
+      <div className="w-full h-24 bg-blue-100 py-4">
+        <div className="flex justify-center items-center h-full">
+          <div className="mr-4">
+            <h4 className="text-gray-900 text-base font-semibold uppercase">
+              Newsletter
+            </h4>
+            <p className="text-sm capitalize text-gray-800">Stay Upto Date</p>
+          </div>
+          <div className="w-2/5 mr-2">
+            <TextInput
+              id="email"
+              type="email"
+              placeholder="news@email.com"
+              icon={HiMail}
+              sizing="md"
+            />
+          </div>
+          <Button className="rounded-lg">
+            <IoIosSend className="mr-2 h-5 w-5 text-white inline-block" />
+            Send
+          </Button>
+        </div>
+      </div>
+
+      {/** Footer */}
+      <Footer />
     </Fragment>
   );
 };

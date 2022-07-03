@@ -1,30 +1,15 @@
 import classNames from 'classnames';
-import Image from 'next/image';
-import CalipsoLogo from '../../public/Calipso.png';
-import Button from '../Button';
+import { Button } from 'flowbite-react';
+import { CalipsoLogo } from '../CalipsoLogo';
 import styles from './Header.module.css';
 
-function Header() {
+export function Header() {
   return (
     <div className={classNames('relative', styles.header)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
-          {/** Logo */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#" className="block relative h-14">
-              <style jsx>{`
-                a {
-                  width: 104px;
-                }
-              `}</style>
-              <span className="sr-only">Calipso</span>
-              <Image
-                src={CalipsoLogo}
-                alt="Calipso logo"
-                layout="fill"
-                objectFit="contain"
-              />
-            </a>
+            <CalipsoLogo />
           </div>
 
           {/** Nav */}
@@ -51,7 +36,11 @@ function Header() {
 
           {/** Right actions */}
           <div className="flex items-center justify-end flex-1 lg:w-0">
-            <Button className="w-44 h-10">Login</Button>
+            <Button pill={true} gradientMonochrome="info">
+              <span className="w-44 h-5 inline-flex justify-center items-center">
+                Login
+              </span>
+            </Button>
           </div>
         </div>
       </div>
@@ -60,5 +49,3 @@ function Header() {
 }
 
 Header.propTypes = {};
-
-export default Header;

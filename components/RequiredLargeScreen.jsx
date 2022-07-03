@@ -11,16 +11,16 @@ const RequiredLargeScreen = props => {
         >
           <div className="relative p-4 w-full max-w-2xl h-full mx-auto md:h-auto flex justify-center items-center">
             {/* <!-- Modal content --> */}
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div className="relative bg-white rounded-lg shadow">
               {/* <!-- Modal header --> */}
-              <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <div className="flex justify-between items-start p-4 rounded-t border-b">
+                <h3 className="text-xl font-semibold text-gray-900">
                   Terms of Service
                 </h3>
               </div>
               {/* <!-- Modal body --> */}
               <div className="p-6 space-y-6">
-                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p className="text-base leading-relaxed text-gray-500">
                   Currently, we don&apos;t support on small screen, please wait!
                 </p>
               </div>
