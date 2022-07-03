@@ -11,9 +11,9 @@ function accountpage() {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTftipWdyK514LenkAJmM-78YfYb-rx8Mdzrw&usqp=CAU" className="rounded-full object-cover h-32 w-32 mx-auto"></img>
                     <input type="submit" value="Upload a photo" />
                 </div>
-                <div className=" pt-7 px-10">
+                <div className="pt-7 px-10">
                     <p className=" font-bold pb-3">Identity Verification</p>
-                    <p>So I started to walk into the water. I won't lie to you boys, I was terrified</p>  
+                    <p>So I started to walk into the water. I wont lie to you boys, I was terrified</p>  
                 </div>
                 <div className=" pt-7 px-10">
                     <p className="font-bold text-2xl pb-3">John Duo</p>
@@ -28,32 +28,32 @@ function accountpage() {
                 <p className="pb-5">Email confirmed</p>
                 <form className="pb-3">
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm mb-2" for="name">
+                    <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
                         Display Name
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="displayname" type="text" placeholder="Display Name"></input>
                     </label>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm mb-2" for="email">
+                    <label className="block text-gray-700 text-sm mb-2" htmlFor="email">
                         Email
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="you.@gmail.com"></input>
                     </label>
                 </div>
               
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm mb-2" for="Gender">
+                    <label className="block text-gray-700 text-sm mb-2" htmlFor="Gender">
                         Gender
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="Twitter" type="text" placeholder="-"></input>
                     </label>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm mb-2" for="Twitter">
+                    <label className="block text-gray-700 text-sm mb-2" htmlFor="Twitter">
                         Twitter
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="Twitter" type="text" placeholder="@twitter_uername"></input>
                     </label>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm mb-2" for="linkedin">
+                    <label className="block text-gray-700 text-sm mb-2" htmlFor="linkedin">
                         Linkedin
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="linkedin" type="text" placeholder="https://www.linkedin.com/"></input>
                     </label>
@@ -68,31 +68,31 @@ function accountpage() {
                 <p className="pb-5"></p>
                 <form className="pb-3">
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm mb-2" for="age">
+                        <label className="block text-gray-700 text-sm mb-2" htmlFor="age">
                             Age
                             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="age" type="text" placeholder="22"></input>
                         </label>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm mb-2" for="phone">
+                        <label className="block text-gray-700 text-sm mb-2" htmlFor="phone">
                             Phone
                             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="1234.1234.1234"></input>
                         </label>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm mb-2" for="UserName">
+                        <label className="block text-gray-700 text-sm mb-2" htmlFor="UserName">
                             UserName
                             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="UserName" type="text" placeholder=""></input>
                         </label>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm mb-2" for="facebook">
+                        <label className="block text-gray-700 text-sm mb-2" htmlFor="facebook">
                             Facebook URL
                             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="Facebook" type="text" placeholder="URL"></input>
                         </label>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm mb-2" for="instagram">
+                        <label className="block text-gray-700 text-sm mb-2" htmlFor="instagram">
                             Instagram
                             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline" id="Instagram" type="text" placeholder="@userintagram"></input>
                         </label>
