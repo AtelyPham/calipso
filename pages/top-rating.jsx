@@ -124,9 +124,12 @@ export async function getStaticProps() {
     ? getMultipleRandom(placesData, itemPerRow)
     : [];
 
+  const sortPlaces = places.map(p => serializeSectionData(p, usersData));
+  sortPlaces.sort((a, b) => b.rating - a.rating);
+
   return {
     props: {
-      places: places.map(p => serializeSectionData(p, usersData)),
+      places: sortPlaces,
     },
     revalidate: 60,
   };
