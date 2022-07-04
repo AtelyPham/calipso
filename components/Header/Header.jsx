@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Button } from 'flowbite-react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { CalipsoLogo } from '../CalipsoLogo';
 import styles from './Header.module.css';
@@ -22,15 +23,15 @@ export function Header(props) {
 
           {/** Nav */}
           <nav className="flex space-x-10">
-            <a href="#" className={textClassName}>
-              Find Cities
-            </a>
-            <a href="#" className={textClassName}>
-              Share Stories
-            </a>
-            <a href="#" className={textClassName}>
-              About us
-            </a>
+            <Link href="/trending">
+              <a className={textClassName}>Find Cities</a>
+            </Link>
+            <Link href="/">
+              <a className={textClassName}>Share Stories</a>
+            </Link>
+            <Link href="/">
+              <a className={textClassName}>About us</a>
+            </Link>
           </nav>
 
           {/** Right actions */}

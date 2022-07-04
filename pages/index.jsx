@@ -139,9 +139,17 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
       </div>
 
       <div className="p-16">
-        <Section name="Trending places to visit" data={trendingPlaces} />
-        <Section name="Cities near your place" data={aroundPlaces} />
-        <Section name="Top rating" data={topRatingPlaces} />
+        <Section
+          name="Trending places to visit"
+          data={trendingPlaces}
+          slug="trending"
+        />
+        <Section
+          name="Cities near your place"
+          data={aroundPlaces}
+          slug="most-view"
+        />
+        <Section name="Top rating" data={topRatingPlaces} slug="top-rating" />
 
         <Banner />
       </div>
