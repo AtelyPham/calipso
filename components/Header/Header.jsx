@@ -38,7 +38,9 @@ export function Header(props) {
           <div className="flex items-center justify-end flex-1 lg:w-0">
             <Button pill={true} gradientMonochrome="info">
               <span className="w-44 h-5 inline-flex justify-center items-center">
-                Login
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
               </span>
             </Button>
           </div>

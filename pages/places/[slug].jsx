@@ -16,8 +16,7 @@ import { FiShare2 } from 'react-icons/fi';
 import { Footer, GoogleMaps, Header, Modal, Scores } from '../../components';
 import dataJson from '../../public/data.json';
 import { serializeDetailData } from '../../utils';
-
-let usersData = null;
+import usersData from '../../public/users.json';
 
 const Detail = ({ place }) => {
   const [isModal, setIsModal] = useState(false);
@@ -248,14 +247,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  if (!usersData) {
-    const usersResp = await axios.get(
-      'https://randomuser.me/api/?results=5&inc=picture',
-    );
-
-    usersData = usersResp.data.results || [];
-  }
-
   const placeData = dataJson.filter(d => d.long_slug === slug);
   if (!placeData.length) {
     throw Error('Not found haha');
@@ -263,7 +254,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const place = serializeDetailData(
     camelcaseKeys(placeData[0], { deep: true }),
-    usersData,
+    usersData.results,
   );
 
   return {
