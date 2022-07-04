@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import { Button } from 'flowbite-react';
+import Link from 'next/link';
 
 const Banner = props => {
   return (
@@ -14,11 +15,15 @@ const Banner = props => {
           <p className="text-xl text-blue-50 mb-5">
             Find place with your interests.
           </p>
-          <Button color="light" size="lg">
-            <p className="text-lg text-gray-900 font-semibold w-36">
-              Let&apos;s go
-            </p>
-          </Button>
+          <Link href="/login">
+            <a>
+              <Button color="light" size="lg">
+                <p className="text-lg text-gray-900 font-semibold w-36">
+                  Let&apos;s go
+                </p>
+              </Button>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="w-1/2 h-full relative rounded-2xl shadow-lg">

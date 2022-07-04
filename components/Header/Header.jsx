@@ -36,13 +36,15 @@ export function Header(props) {
 
           {/** Right actions */}
           <div className="flex items-center justify-end flex-1 lg:w-0">
-            <Button pill={true} gradientMonochrome="info">
-              <span className="w-44 h-5 inline-flex justify-center items-center">
-                <Link href="/login">
-                  <a>Login</a>
-                </Link>
-              </span>
-            </Button>
+            <Link href="/login">
+              <a>
+                <Button pill={true} gradientMonochrome="info">
+                  <span className="w-44 h-5 inline-flex justify-center items-center">
+                    Login
+                  </span>
+                </Button>
+              </a>
+            </Link>
           </div>
         </div>
       </div>
