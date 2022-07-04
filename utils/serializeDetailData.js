@@ -1,6 +1,6 @@
-import { randNumber } from '@ngneat/falso';
+import { randNumber, randProductDescription } from '@ngneat/falso';
 
-export function serializeSectionData(place, usersData) {
+export function serializeDetailData(place, usersData) {
   const {
     longSlug,
     image: backgroundUrl,
@@ -18,6 +18,9 @@ export function serializeSectionData(place, usersData) {
   const isUserOnline = randNumber({ min: 1, max: 10 }) > 9;
 
   return {
+    ...place,
+    descriptionFromReview:
+      place.descriptionFromReview || randProductDescription({ length: 2 }),
     longSlug,
     avatarUrl,
     backgroundUrl,

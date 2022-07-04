@@ -1,4 +1,5 @@
 export * from './serializeCardData';
+export * from './serializeDetailData';
 
 export function getMultipleRandom(arr, num) {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());

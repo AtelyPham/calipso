@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+/* eslint-disable @next/next/no-img-element */
+import axios from 'axios';
+import camelcaseKeys from 'camelcase-keys';
+import classNames from 'classnames';
+import { Avatar } from 'flowbite-react';
 import Head from 'next/head';
-import data from '../public/data.json';
-import { Modal, Scores, GoogleMaps } from '../components';
+import { useState } from 'react';
+import {
+  AiFillCloud,
+  AiFillDollarCircle,
+  AiFillLike,
+  AiFillStar,
+} from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
 import { FiShare2 } from 'react-icons/fi';
-import {
-  AiFillStar,
-  AiFillDollarCircle,
-  AiFillCloud,
-  AiFillLike,
-} from 'react-icons/ai';
-import { Avatar } from 'flowbite-react';
+import { Footer, GoogleMaps, Header, Modal, Scores } from '../../components';
+import dataJson from '../../public/data.json';
+import { serializeDetailData } from '../../utils';
 
-const Details = () => {
+let usersData = null;
+
+const Detail = ({ place }) => {
   const [isModal, setIsModal] = useState(false);
   const [imgSrc, setImgSrc] = useState('');
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -24,16 +31,16 @@ const Details = () => {
   };
 
   const handelRotationRight = () => {
-    const totalLength = data.length;
+    const totalLength = dataJson.length;
     if (currentIndex + 1 >= totalLength) {
       setCurrentIndex(0);
-      const newURL = data[0].image;
+      const newURL = dataJson[0].image;
       setImgSrc(newURL);
       return;
     }
     const newIndex = currentIndex + 1;
-    const newURL = data.filter(item => {
-      return data.indexOf(item) === newIndex;
+    const newURL = dataJson.filter(item => {
+      return dataJson.indexOf(item) === newIndex;
     });
     const newItem = newURL[0].image;
 
@@ -42,16 +49,16 @@ const Details = () => {
   };
 
   const handelRotationLeft = () => {
-    const totalLength = data.length;
+    const totalLength = dataJson.length;
     if (currentIndex === 0) {
       setCurrentIndex(totalLength - 1);
-      const newURL = data[totalLength - 1].image;
+      const newURL = dataJson[totalLength - 1].image;
       setImgSrc(newURL);
       return;
     }
     const newIndex = currentIndex - 1;
-    const newURL = data.filter(item => {
-      return data.indexOf(item) === newIndex;
+    const newURL = dataJson.filter(item => {
+      return dataJson.indexOf(item) === newIndex;
     });
     const newItem = newURL[0].image;
 
@@ -61,21 +68,26 @@ const Details = () => {
 
   return (
     <div>
-      <div className={isModal ? 'h-screen blur-sm' : 'h-screen'}>
+      <Header hasVideo={false} />
+      <div className={classNames(isModal ? 'h-screen blur-sm' : 'h-screen')}>
         <Head>
-          <title>Details</title>
+          <title>
+            {place.name} | {place.country}
+          </title>
         </Head>
 
         <div className="p-16">
           <div className="grid grid-cols-[57rem_auto_19.5rem] gap-5 auto-cols-auto">
             <img
-              src={data[0].image}
+              alt="Haha"
+              src={dataJson[0].image}
               className="row-span-2 w-[912px] h-[540px] rounded-3xl shadow-2xl"
             />
-            {data.map((items, index) => {
+            {dataJson.slice(0, 4).map((items, index) => {
               return (
                 <div key={index}>
                   <img
+                    alt={items.image_lastmod}
                     id={items.image_lastmod}
                     src={items.image}
                     className="w-[315px] h-[260px] rounded-xl cursor-pointer shadow-2xl z-0 hover:blur-[1px]"
@@ -96,8 +108,8 @@ const Details = () => {
           <div className="space-y-4 my-8">
             <div className="flex flex-row w-[45.5rem] pl-4">
               <div>
-                <h2 className="text-3xl font-bold"> Ho Chi Minh </h2>
-                <div className="font-thin">Viet Nam</div>
+                <h2 className="text-3xl font-bold">{place.city}</h2>
+                <div className="font-thin">{place.country}</div>
               </div>
               <div className="flex flex-row absolute right-[54rem]">
                 <FcLike className="text-3xl " />
@@ -111,7 +123,9 @@ const Details = () => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">1</span>
+                <span className="text-base text-slate-100 font-bold">
+                  {Math.floor(place.totalScore)}/5
+                </span>
               </div>
               <div className="m-3 w-40 h-36 bg-[#6366F1] rounded-lg text-center pt-12">
                 <AiFillDollarCircle
@@ -119,7 +133,9 @@ const Details = () => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">2</span>
+                <span className="text-base text-slate-100 font-bold">
+                  $ {place.costForNomadInUsd.toLocaleString()}
+                </span>
               </div>
               <div className="m-3 w-40 h-36 bg-[#6366F1] rounded-lg text-center pt-12">
                 <AiFillCloud
@@ -127,7 +143,9 @@ const Details = () => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">3</span>
+                <span className="text-base text-slate-100 font-bold">
+                  {place.temperatureCFeelsLike} &deg;C
+                </span>
               </div>
               <div className="m-3 w-40 h-36 bg-[#6366F1] rounded-lg text-center pt-12">
                 <AiFillLike
@@ -135,16 +153,15 @@ const Details = () => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">4</span>
+                <span className="text-base text-slate-100 font-bold">
+                  {place.overallScore.toFixed(2)}
+                </span>
               </div>
             </div>
             <div className="pl-4">
               <h2 className="text-2xl font-bold">City Description</h2>
               <span className="font-sans font-thin text-[#9A9A9A] text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias
-                earum vel cumque magni nesciunt quaerat ab quod veritatis
-                laudantium, molestias, id, expedita voluptatum. Velit fugiat
-                nihil a qui ipsa ex.
+                {place.descriptionFromReview}
               </span>
             </div>
           </div>
@@ -202,9 +219,10 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <Scores />
+        <Scores place={place} />
         <GoogleMaps className="pl-4" />
         <div className="pl-4"></div>
+        <Footer />
       </div>
       {isModal && (
         <Modal
@@ -218,4 +236,41 @@ const Details = () => {
   );
 };
 
-export default Details;
+export async function getStaticPaths() {
+  const paths = dataJson.map(data => ({
+    params: { slug: data.long_slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  if (!usersData) {
+    const usersResp = await axios.get(
+      'https://randomuser.me/api/?results=5&inc=picture',
+    );
+
+    usersData = usersResp.data.results || [];
+  }
+
+  const placeData = dataJson.filter(d => d.long_slug === slug);
+  if (!placeData.length) {
+    throw Error('Not found haha');
+  }
+
+  const place = serializeDetailData(
+    camelcaseKeys(placeData[0], { deep: true }),
+    usersData,
+  );
+
+  return {
+    props: {
+      place,
+    },
+  };
+}
+
+export default Detail;
