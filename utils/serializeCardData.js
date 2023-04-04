@@ -12,7 +12,9 @@ export function serializeSectionData(place, usersData) {
   const randomUserIdx = Math.floor(Math.random() * usersData.length);
   const user = usersData[randomUserIdx];
   const avatarUrl = user.picture.large;
-  const detailUrl = `${process.env.BASE_URL}/places/${longSlug}`;
+  const detailUrl = process.env.BASE_URL
+    ? `${process.env.BASE_URL}/places/${longSlug}`
+    : `/places/${longSlug}`;
 
   const isFavorited = false;
   const isUserOnline = randNumber({ min: 1, max: 10 }) > 9;

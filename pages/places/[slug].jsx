@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 import classNames from 'classnames';
 import { Avatar } from 'flowbite-react';
@@ -15,8 +14,8 @@ import { FcLike } from 'react-icons/fc';
 import { FiShare2 } from 'react-icons/fi';
 import { Footer, GoogleMaps, Header, Modal, Scores } from '../../components';
 import dataJson from '../../public/data.json';
-import { serializeDetailData } from '../../utils';
 import usersData from '../../public/users.json';
+import { serializeDetailData } from '../../utils';
 
 const Detail = ({ place }) => {
   const [isModal, setIsModal] = useState(false);
@@ -71,7 +70,7 @@ const Detail = ({ place }) => {
       <div className={classNames(isModal ? 'h-screen blur-sm' : 'h-screen')}>
         <Head>
           <title>
-            {place.name} | {place.country}
+            {`${place.name.toString()} | ${place.country.toString()}`}
           </title>
         </Head>
 
@@ -103,8 +102,8 @@ const Detail = ({ place }) => {
             })}
           </div>
         </div>
-        <div className="px-24 space-y-4 flex flex-row">
-          <div className="space-y-4 my-8">
+        <div className="flex flex-row px-24 space-y-4">
+          <div className="my-8 space-y-4">
             <div className="flex flex-row w-[45.5rem] pl-4">
               <div>
                 <h2 className="text-3xl font-bold">{place.city}</h2>
@@ -122,7 +121,7 @@ const Detail = ({ place }) => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">
+                <span className="text-base font-bold text-slate-100">
                   {Math.floor(place.totalScore)}/5
                 </span>
               </div>
@@ -132,7 +131,7 @@ const Detail = ({ place }) => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">
+                <span className="text-base font-bold text-slate-100">
                   $ {place.costForNomadInUsd.toLocaleString()}
                 </span>
               </div>
@@ -142,7 +141,7 @@ const Detail = ({ place }) => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">
+                <span className="text-base font-bold text-slate-100">
                   {place.temperatureCFeelsLike} &deg;C
                 </span>
               </div>
@@ -152,7 +151,7 @@ const Detail = ({ place }) => {
                   fontSize="2rem"
                   className="mx-auto"
                 />
-                <span className="text-base text-slate-100 font-bold">
+                <span className="text-base font-bold text-slate-100">
                   {place.overallScore.toFixed(2)}
                 </span>
               </div>
@@ -165,8 +164,8 @@ const Detail = ({ place }) => {
             </div>
           </div>
           <div className="mx-40">
-            <div className="bg-white w-80 h-72 shadow-2xl rounded-lg p-8">
-              <span className="text-xl font-semibold font-serif">
+            <div className="p-8 bg-white rounded-lg shadow-2xl w-80 h-72">
+              <span className="font-serif text-xl font-semibold">
                 Chat with people here
               </span>
               <hr />
@@ -194,23 +193,25 @@ const Detail = ({ place }) => {
                   />
                 </Avatar.Group>
               </div>
-              <span className="text-base font-medium font-serif">
+              <span className="font-serif text-base font-medium">
                 Chat with people here before visiting
               </span>
               <div className="my-4">
                 <button className="w-64 h-[2.5rem] bg-blue-700 text-center rounded-3xl pt-0 hover:bg-blue-800">
-                  <span className="text-slate-100	font-semibold ">Chat now</span>
+                  <span className="font-semibold text-slate-100 ">
+                    Chat now
+                  </span>
                 </button>
               </div>
             </div>
-            <div className="bg-white w-80 h-36 shadow-2xl rounded-lg p-8 mt-4">
-              <span className="text-xl font-semibold font-serif">
+            <div className="p-8 mt-4 bg-white rounded-lg shadow-2xl w-80 h-36">
+              <span className="font-serif text-xl font-semibold">
                 Share your experience
               </span>
               <hr />
               <div className="my-4">
                 <button className="w-64 h-[2.5rem] bg-blue-700 text-center rounded-3xl pt-0 hover:bg-blue-800">
-                  <span className="text-slate-100	font-semibold ">
+                  <span className="font-semibold text-slate-100 ">
                     Share now
                   </span>
                 </button>
