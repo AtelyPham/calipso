@@ -30,7 +30,7 @@ const Card = ({
         backgroundSize: 'cover',
       }}
     >
-      <div className="flex flex-row justify-between items-center w-full">
+      <div className="flex flex-row items-center justify-between w-full">
         <Rating size="md">
           {Array(5)
             .fill()
@@ -59,15 +59,15 @@ const Card = ({
         )}
       </div>
 
-      <div className="flex flex-col justify-center items-center my-4">
-        <h2 className="font-bold text-2xl mt-4 text-white">{city}</h2>
-        <h3 className="font-semibold text-lg mb-4 text-white">{country}</h3>
+      <div className="flex flex-col items-center justify-center my-4">
+        <h2 className="mt-4 text-2xl font-bold text-white">{city}</h2>
+        <h3 className="mb-4 text-lg font-semibold text-white">{country}</h3>
       </div>
 
-      <div className="flex flex-row justify-between items-center w-full">
+      <div className="flex flex-row items-center justify-between w-full">
         <div className="relative w-12 h-12">
           <Image
-            className="rounded-full border border-gray-100 shadow-sm"
+            className="border border-gray-100 rounded-full shadow-sm"
             src={avatarUrl}
             alt="User avatar"
             layout="fill"
@@ -80,10 +80,11 @@ const Card = ({
           ></div>
         </div>
 
-        <Link href={detailUrl}>
-          <a className="flex flex-row justify-between items-center border-b text-md text-gray-50 border-b-gray-50 hover:text-blue-400 hover:border-b-blue-400">
-            Detail <MdArrowRightAlt size={iconSize * 0.7} className="mt-1 " />
-          </a>
+        <Link
+          href={detailUrl}
+          className="flex flex-row items-center justify-between border-b text-md text-gray-50 border-b-gray-50 hover:text-blue-400 hover:border-b-blue-400"
+        >
+          Detail <MdArrowRightAlt size={iconSize * 0.7} className="mt-1 " />
         </Link>
       </div>
     </div>

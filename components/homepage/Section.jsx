@@ -7,10 +7,8 @@ const Section = ({ name, data, slug }) => {
   return (
     <div className="mb-14">
       <div className="w-72 group">
-        <h1 className="text-3xl font-bold text-gray-600 w-full group-hover:text-gray-800 group-hover:underline group-hover:underline-offset-4 cursor-pointer">
-          <Link href={`/${slug}`}>
-            <a>{name}</a>
-          </Link>
+        <h1 className="w-full text-3xl font-bold text-gray-600 cursor-pointer group-hover:text-gray-800 group-hover:underline group-hover:underline-offset-4">
+          <Link href={`/${slug}`}>{name}</Link>
         </h1>
         <div className="h-1.5 w-1/2 bg-gray-800 mt-3 group-hover:bg-transparent" />
       </div>

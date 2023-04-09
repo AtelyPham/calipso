@@ -15,35 +15,33 @@ export function Header(props) {
 
   return (
     <div className={classNames('relative', styles.header, props.className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6">
+        <div className="flex items-center justify-between py-4 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <CalipsoLogo />
           </div>
 
           {/** Nav */}
           <nav className="flex space-x-10">
-            <Link href="/trending">
-              <a className={textClassName}>Find Cities</a>
+            <Link className={textClassName} href="/trending">
+              Find Cities
             </Link>
-            <Link href="/">
-              <a className={textClassName}>Share Stories</a>
+            <Link className={textClassName} href="/">
+              Share Stories
             </Link>
-            <Link href="/">
-              <a className={textClassName}>About us</a>
+            <Link className={textClassName} href="/">
+              About us
             </Link>
           </nav>
 
           {/** Right actions */}
           <div className="flex items-center justify-end flex-1 lg:w-0">
             <Link href="/login">
-              <a>
-                <Button pill={true} gradientMonochrome="info">
-                  <span className="w-44 h-5 inline-flex justify-center items-center">
-                    Login
-                  </span>
-                </Button>
-              </a>
+              <Button pill={true} gradientMonochrome="info">
+                <span className="inline-flex items-center justify-center h-5 w-44">
+                  Login
+                </span>
+              </Button>
             </Link>
           </div>
         </div>

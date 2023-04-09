@@ -26,9 +26,9 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
       </Head>
 
       {/** Hero section */}
-      <div className="h-screen w-screen relative">
+      <div className="relative w-screen h-screen">
         <video
-          className="object-cover h-full w-full absolute"
+          className="absolute object-cover w-full h-full"
           autoPlay
           loop
           muted
@@ -43,7 +43,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
         <Header />
 
         {/** Right card */}
-        <div className="absolute p-6 w-72 bg-white rounded-lg border border-gray-200 shadow-md top-1/4 left-2/3">
+        <div className="absolute p-6 bg-white border border-gray-200 rounded-lg shadow-md w-72 top-1/4 left-2/3">
           <div className="mb-2">
             <Image
               className="rounded-lg"
@@ -56,26 +56,22 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
             />
           </div>
           <Input id="email" leadingIcon={<MailIcon />} />
-          <Link href="/login">
-            <a>
-              <button
-                type="button"
-                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full"
-              >
-                Login
-              </button>
-            </a>
-          </Link>
+          <button
+            type="button"
+            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full"
+          >
+            <Link href="/login">Login</Link>
+          </button>
         </div>
 
         {/** Find city */}
         <div className="w-full flex justify-center absolute bottom-[10%] mx-auto">
           <div>
-            <h1 className="uppercase text-3xl font-semibold text-white mb-2">
+            <h1 className="mb-2 text-3xl font-semibold text-white uppercase">
               Find city
             </h1>
             <div className="bg-white px-8 py-3.5 rounded-full flex">
-              <div className="relative z-0 w-52 pr-8">
+              <div className="relative z-0 pr-8 w-52">
                 <label
                   htmlFor="location"
                   className="block text-sm font-medium text-gray-900"
@@ -85,7 +81,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
                 <input
                   type="text"
                   id="location"
-                  className="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="block w-full px-0 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder="Which city do you prefer?"
                 />
               </div>
@@ -100,7 +96,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
                 <input
                   type="text"
                   id="continents"
-                  className="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="block w-full px-0 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder="E.g. Asian"
                 />
               </div>
@@ -115,7 +111,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
                 <input
                   type="text"
                   id="trending"
-                  className="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="block w-full px-0 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder="City"
                 />
               </div>
@@ -160,13 +156,13 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
       </div>
 
       {/** Newsletter */}
-      <div className="w-full h-24 bg-blue-100 py-4">
-        <div className="flex justify-center items-center h-full">
+      <div className="w-full h-24 py-4 bg-blue-100">
+        <div className="flex items-center justify-center h-full">
           <div className="mr-4">
-            <h4 className="text-gray-900 text-base font-semibold uppercase">
+            <h4 className="text-base font-semibold text-gray-900 uppercase">
               Newsletter
             </h4>
-            <p className="text-sm capitalize text-gray-800">Stay Upto Date</p>
+            <p className="text-sm text-gray-800 capitalize">Stay Upto Date</p>
           </div>
           <div className="w-2/5 mr-2">
             <TextInput
@@ -178,7 +174,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
             />
           </div>
           <Button className="rounded-lg">
-            <IoIosSend className="mr-2 h-5 w-5 text-white inline-block" />
+            <IoIosSend className="inline-block w-5 h-5 mr-2 text-white" />
             Send
           </Button>
         </div>
