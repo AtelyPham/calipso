@@ -2,7 +2,7 @@ import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 import { TextInput, Button } from 'flowbite-react';
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { Fragment } from 'react';
 import { HiMail } from 'react-icons/hi';
 import { IoIosSend } from 'react-icons/io';

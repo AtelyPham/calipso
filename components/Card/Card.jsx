@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Rating } from 'flowbite-react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
