@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import { CalipsoLogo } from '../CalipsoLogo';
 import styles from './Header.module.css';
 
-export function Header(props) {
+export function Header({ hasVideo = true, ...props }) {
   const textClassName = classNames(
     'text-base font-medium',
-    props.hasVideo
+    hasVideo
       ? 'text-gray-200 hover:text-gray-300 active:text-gray-200'
       : 'text-gray-500 hover:text-gray-700 active:text-gray-500',
   );
@@ -49,10 +49,6 @@ export function Header(props) {
     </div>
   );
 }
-
-Header.defaultProps = {
-  hasVideo: true,
-};
 
 Header.propTypes = {
   hasVideo: PropTypes.bool,
