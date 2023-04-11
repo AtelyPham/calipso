@@ -1,46 +1,48 @@
+import Image from 'next/image';
 import React from 'react';
 
 function accountpage() {
   return (
     <>
       <div className="h-screen">
-        <div className="flex flex-wrap h-5/6 top-0">
-          <div className="basis-1/3 flex flex-col  ">
-            <div className="rounded-md h- w-80 bg-slate-100 absolute left-32 top-28 py-8">
+        <div className="top-0 flex flex-wrap h-5/6">
+          <div className="flex flex-col basis-1/3 ">
+            <div className="absolute py-8 rounded-md h- w-80 bg-slate-100 left-32 top-28">
               <div className="flex flex-col justify-center">
-                <img
+                <Image
+                  alt="profile"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTftipWdyK514LenkAJmM-78YfYb-rx8Mdzrw&usqp=CAU"
-                  className="rounded-full object-cover h-32 w-32 mx-auto"
-                ></img>
+                  className="object-cover w-32 h-32 mx-auto rounded-full"
+                />
                 <input type="submit" value="Upload a photo" />
               </div>
-              <div className="pt-7 px-10">
-                <p className=" font-bold pb-3">Identity Verification</p>
+              <div className="px-10 pt-7">
+                <p className="pb-3 font-bold ">Identity Verification</p>
                 <p>
                   So I started to walk into the water. I wont lie to you boys, I
                   was terrified
                 </p>
               </div>
-              <div className=" pt-7 px-10">
-                <p className="font-bold text-2xl pb-3">John Duo</p>
+              <div className="px-10  pt-7">
+                <p className="pb-3 text-2xl font-bold">John Duo</p>
                 <p className="">Email confirmed</p>
                 <p className="">Mobile confirmed</p>
               </div>
             </div>
           </div>
           <div className="basis-1/3">
-            <div className="rounded-md h-94 w-80 absolute top-28">
-              <p className="font-bold text-2xl pb-3">Hello, John Duo</p>
+            <div className="absolute rounded-md h-94 w-80 top-28">
+              <p className="pb-3 text-2xl font-bold">Hello, John Duo</p>
               <p className="pb-5">Email confirmed</p>
               <form className="pb-3">
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="name"
                   >
                     Display Name
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="displayname"
                       type="text"
                       placeholder="Display Name"
@@ -49,12 +51,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="email"
                   >
                     Email
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="email"
                       type="text"
                       placeholder="you.@gmail.com"
@@ -64,12 +66,12 @@ function accountpage() {
 
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="Gender"
                   >
                     Gender
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="Twitter"
                       type="text"
                       placeholder="-"
@@ -78,12 +80,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="Twitter"
                   >
                     Twitter
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="Twitter"
                       type="text"
                       placeholder="@twitter_uername"
@@ -92,12 +94,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="linkedin"
                   >
                     Linkedin
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="linkedin"
                       type="text"
                       placeholder="https://www.linkedin.com/"
@@ -108,18 +110,18 @@ function accountpage() {
             </div>
           </div>
           <div className="basis-1/3">
-            <div className="rounded-md h-94 w-80 absolute top-44">
-              <p className="font-bold text-2xl pb-3"></p>
+            <div className="absolute rounded-md h-94 w-80 top-44">
+              <p className="pb-3 text-2xl font-bold"></p>
               <p className="pb-5"></p>
               <form className="pb-3">
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="age"
                   >
                     Age
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="age"
                       type="text"
                       placeholder="22"
@@ -128,12 +130,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="phone"
                   >
                     Phone
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="phone"
                       type="text"
                       placeholder="1234.1234.1234"
@@ -142,12 +144,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="UserName"
                   >
                     UserName
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="UserName"
                       type="text"
                       placeholder=""
@@ -156,12 +158,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="facebook"
                   >
                     Facebook URL
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="Facebook"
                       type="text"
                       placeholder="URL"
@@ -170,12 +172,12 @@ function accountpage() {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm mb-2"
+                    className="block mb-2 text-sm text-gray-700"
                     htmlFor="instagram"
                   >
                     Instagram
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 font-light leading-tight focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 py-2 font-light leading-tight text-gray-800 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="Instagram"
                       type="text"
                       placeholder="@userintagram"
@@ -188,11 +190,11 @@ function accountpage() {
         </div>
         <div className="flex flex-col justify-center">
           <div className="text-center">
-            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            <button className="px-4 py-2 font-semibold text-gray-800 bg-white border border-gray-400 rounded shadow hover:bg-gray-100">
               Edit profile
             </button>
           </div>
-          <a className="text-center pt-6" href="#">
+          <a className="pt-6 text-center" href="#">
             Check in by you
           </a>
         </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
@@ -14,10 +15,11 @@ const Modal = ({
 
   return (
     <div>
-      <div className="justify-items-center items-center fixed top-0 w-full h-screen flex scale-75 ">
-        <img
+      <div className="fixed top-0 flex items-center w-full h-screen scale-75 justify-items-center ">
+        <Image
+          alt="Clicked Image"
           src={clickedImg}
-          className="w-auto max-w-full h-auto block mx-auto my-0 bg-contain"
+          className="block w-auto h-auto max-w-full mx-auto my-0 bg-contain"
         />
       </div>
       <IoCloseSharp
@@ -26,11 +28,11 @@ const Modal = ({
       />
 
       <div onClick={handelRotationRight}>
-        <VscArrowRight className="items-right fixed top-0 my-96 right-0 text-4xl" />
+        <VscArrowRight className="fixed top-0 right-0 text-4xl items-right my-96" />
       </div>
 
       <div onClick={handelRotationLeft}>
-        <VscArrowLeft className="items-left fixed top-0 my-96 left-0 text-4xl" />
+        <VscArrowLeft className="fixed top-0 left-0 text-4xl items-left my-96" />
       </div>
     </div>
   );

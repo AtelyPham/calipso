@@ -1,10 +1,13 @@
 import RequiredLargeScreen from '../components/RequiredLargeScreen';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <RequiredLargeScreen>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </RequiredLargeScreen>
   );
 }
