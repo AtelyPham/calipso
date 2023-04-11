@@ -22,7 +22,7 @@ const Home = ({ trendingPlaces, aroundPlaces, topRatingPlaces }) => {
       <Head>
         <title>Capliso - Your travel agent</title>
         <meta name="description" content="Find a city and go" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/calipso.svg" />
       </Head>
 
       {/** Hero section */}

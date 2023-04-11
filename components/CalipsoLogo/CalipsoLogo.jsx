@@ -6,7 +6,7 @@ import CalipsoImage from '../../public/Calipso.png';
 export const CalipsoLogo = () => {
   return (
     <Link href="/">
-      <div className="block relative h-14 w-[104px] cursor-pointer">
+      <div className="relative block w-24 h-24 cursor-pointer">
         <span className="sr-only">Calipso</span>
         <Image
           priority
