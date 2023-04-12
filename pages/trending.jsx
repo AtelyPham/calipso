@@ -64,7 +64,7 @@ const Trending = ({ places }) => {
         <Tabs active="trending" />
 
         <div
-          className="list mt-12 grid grid-cols-4 gap-6"
+          className="grid grid-cols-4 gap-6 mt-12 list"
           ref={ulElement}
           style={{ height: '650px', overflow: 'auto' }}
         >
@@ -81,13 +81,13 @@ const Trending = ({ places }) => {
       </div>
 
       {/** Newsletter */}
-      <div className="w-full h-24 bg-blue-100 py-4">
-        <div className="flex justify-center items-center h-full">
+      <div className="w-full h-24 py-4 bg-blue-100">
+        <div className="flex items-center justify-center h-full">
           <div className="mr-4">
-            <h4 className="text-gray-900 text-base font-semibold uppercase">
+            <h4 className="text-base font-semibold text-gray-900 uppercase">
               Newsletter
             </h4>
-            <p className="text-sm capitalize text-gray-800">Stay Upto Date</p>
+            <p className="text-sm text-gray-800 capitalize">Stay Upto Date</p>
           </div>
           <div className="w-2/5 mr-2">
             <TextInput
@@ -99,7 +99,7 @@ const Trending = ({ places }) => {
             />
           </div>
           <Button className="rounded-lg">
-            <IoIosSend className="mr-2 h-5 w-5 text-white inline-block" />
+            <IoIosSend className="inline-block w-5 h-5 mr-2 text-white" />
             Send
           </Button>
         </div>
@@ -112,9 +112,14 @@ const Trending = ({ places }) => {
 };
 
 export async function getStaticProps() {
-  const usersResp = await axios.get(
-    'https://randomuser.me/api/?results=5&inc=picture',
-  );
+  let usersResp = { data: { results: [] } };
+
+  try {
+    usersResp = await axios.get(
+      'https://randomuser.me/api/?results=5&inc=picture',
+    );
+  } catch (error) {}
+
   const placesResp = dataJson;
   const placesData = camelcaseKeys(placesResp || [], { deep: true });
   const usersData = usersResp.data.results || [];

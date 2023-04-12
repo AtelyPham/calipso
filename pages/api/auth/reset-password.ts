@@ -96,6 +96,11 @@ const PUT = async (req: NextApiRequest, res: NextApiResponse) => {
 
   // Return user
   const user = await User.findOne({ _id: token.userId });
+  if (!user) {
+    return res.status(400).json({
+      message: 'User not found',
+    });
+  }
 
   // Hash password before resetting
   const hashedPassword = await hashPassword(password);

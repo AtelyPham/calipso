@@ -7,8 +7,8 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
-  const emailRef = React.useRef(null);
-  const passwordRef = React.useRef(null);
+  const emailRef = React.useRef<HTMLInputElement | null>(null);
+  const passwordRef = React.useRef<HTMLInputElement | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
 

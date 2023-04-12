@@ -7,7 +7,7 @@ import User from '../../../models/User';
 async function POST(req: NextApiRequest, res: NextApiResponse) {
   const { email, password, name, image } = req.body;
   if (!email || !password) {
-    const missingFields = [];
+    const missingFields: string[] = [];
 
     if (!email) missingFields.push('email');
     if (!password) missingFields.push('password');
