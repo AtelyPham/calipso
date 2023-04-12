@@ -3,6 +3,7 @@ import { getToken } from 'next-auth/jwt';
 
 import Place from '../../../models/Place';
 import mongoose from '../..//../libs/mongodb/mongoose';
+import User from '../../../models/User';
 
 async function GET(req: NextApiRequest, res: NextApiResponse) {
   const { offset = 0, limit = 10 } = req.query;
@@ -36,7 +37,12 @@ async function POST(req: NextApiRequest, res: NextApiResponse) {
     });
   }
 
-  if (token.role !== 'admin') {
+  const user = await User.findOne({ email: token.email }).exec();
+  if (!user) {
+    return res.status(404).end();
+  }
+
+  if (user.role !== 'admin') {
     return res.status(403).json({
       message: 'Forbidden, you are not an admin',
     });

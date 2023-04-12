@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { getToken } from 'next-auth/jwt';
 import Comment from '../../../models/Comment';
 import Place from '../../../models/Place';
-import { getToken } from 'next-auth/jwt';
 import User from '../../../models/User';
-import { ObjectId } from 'mongodb';
 
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   // Get the placeId from the query string

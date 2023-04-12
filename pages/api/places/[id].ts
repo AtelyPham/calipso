@@ -3,6 +3,7 @@ import { getToken } from 'next-auth/jwt';
 
 import Place from '../../../models/Place';
 import parsePlaceBody from '../../../utils/parsePlaceBody';
+import User from '../../../models/User';
 
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
@@ -32,7 +33,12 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 
-  if (token.role !== 'admin') {
+  const user = await User.findOne({ email: token.email }).exec();
+  if (!user) {
+    return res.status(404).end();
+  }
+
+  if (user.role !== 'admin') {
     return res.status(403).json({
       message: 'Forbidden, you are not an admin',
     });
@@ -142,7 +148,12 @@ const PUT = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 
-  if (token.role !== 'admin') {
+  const user = await User.findOne({ email: token.email }).exec();
+  if (!user) {
+    return res.status(404).end();
+  }
+
+  if (user.role !== 'admin') {
     return res.status(403).json({
       message: 'Forbidden, you are not an admin',
     });
@@ -180,7 +191,12 @@ const DELETE = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 
-  if (token.role !== 'admin') {
+  const user = await User.findOne({ email: token.email }).exec();
+  if (!user) {
+    return res.status(404).end();
+  }
+
+  if (user.role !== 'admin') {
     return res.status(403).json({
       message: 'Forbidden, you are not an admin',
     });
