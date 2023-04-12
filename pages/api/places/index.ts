@@ -10,7 +10,9 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
   const _limit = Number(limit);
 
   if (Number.isNaN(_offset) || Number.isNaN(_limit)) {
-    return res.status(400).end();
+    return res.status(400).json({
+      message: 'Invalid offset or limit',
+    });
   }
 
   await mongoose.connect();

@@ -7,6 +7,8 @@ import Token from '../../../models/Token';
 import User from '../../../models/User';
 import { hashPassword } from '../../../utils/hash';
 
+const RATE_LIMIT_SECOND = 60; // 1 minute
+
 const POST = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
 
@@ -25,11 +27,14 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
         const createdAt = new Date(token.createdAt);
 
         // Rate limit 1 minute for sending email
-        if (Date.now() - createdAt.getTime() < 60000) {
+        const timeDiff = Date.now() - createdAt.getTime();
+        const rateLimitTime = RATE_LIMIT_SECOND * 1000;
+
+        if (timeDiff < rateLimitTime) {
           return res.status(400).json({
             success: false,
             message: `Please wait for ${
-              60 - Math.floor((Date.now() - createdAt.getTime()) / 1000)
+              (rateLimitTime - timeDiff) / 1000
             } seconds before requesting again`,
           });
         }
