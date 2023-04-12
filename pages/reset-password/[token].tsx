@@ -42,8 +42,8 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="flex items-center justify-center w-3/5 mx-auto">
-      <div className="flex flex-col w-full space-y-5">
+    <div className="flex items-center justify-center w-3/5 h-screen max-w-sm mx-auto">
+      <div className="flex flex-col w-full space-y-5 prose">
         <h3 className="text-center">Enter a new password for your account</h3>
 
         <form onSubmit={handleSubmit} className="w-full">
@@ -74,12 +74,12 @@ export default function ResetPassword() {
             />
           </div>
 
-          <div className="w-full">
+          <div className="w-full [&>button]:w-full">
             <Button type={'submit'} disabled={!password}>
               {isLoading ? (
                 <>
                   <Spinner size={'sm'} />
-                  <span className="ml-2">Sending...</span>
+                  <span className="ml-2">Resetting...</span>
                 </>
               ) : (
                 'Reset Password'
@@ -88,9 +88,11 @@ export default function ResetPassword() {
           </div>
         </form>
 
-        <Button color="gray">
-          <Link href={'/'}>Back to Login</Link>
-        </Button>
+        <div className="[&>button]:w-full">
+          <Button color="gray">
+            <Link href={'/'}>Back to Login</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
