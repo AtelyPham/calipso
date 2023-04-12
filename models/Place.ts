@@ -51,155 +51,152 @@ export interface IPlace {
   safety_level: number;
 }
 
-const placeSchema = new Schema<IPlace>(
-  {
-    image_lastmod: {
-      type: 'Number',
-    },
-    region: {
-      type: 'String',
-    },
-    population: {
-      type: 'String',
-    },
-    descriptionFromReview: {
-      type: 'String',
-    },
-    slug: {
-      type: 'String',
-    },
-    short_slug: {
-      type: 'String',
-    },
-    long_slug: {
-      type: 'String',
-    },
-    users_count: {
-      type: 'Number',
-    },
-    users_count_est: {
-      type: 'Number',
-    },
-    users_count_been: {
-      type: 'Number',
-    },
-    users_count_been_est: {
-      type: 'Number',
-    },
-    boost: {
-      type: 'Number',
-    },
-    last_2_year_growth: {
-      type: 'Number',
-    },
-    image: {
-      type: 'String',
-    },
-    name_chinese: {
-      type: 'String',
-    },
-    name: {
-      type: 'String',
-    },
-    country_chinese: {
-      type: 'String',
-    },
-    air_quality_now: {
-      type: 'Number',
-    },
-    air_quality: {
-      type: 'Mixed',
-    },
-    latitude: {
-      type: 'String',
-    },
-    longitude: {
-      type: 'String',
-    },
-    country: {
-      type: 'String',
-    },
-    country_code: {
-      type: 'String',
-    },
-    country_slug: {
-      type: 'String',
-    },
-    state_code: {
-      type: 'String',
-    },
-    state_chinese: {
-      type: 'String',
-    },
-    state: {
-      type: 'String',
-    },
-    internet_speed: {
-      type: 'Number',
-    },
-    air_quality_score: {
-      type: 'Number',
-    },
-    air_quality_now_score: {
-      type: 'Number',
-    },
-    humidity: {
-      type: 'Number',
-    },
-    rank: {
-      type: 'Number',
-    },
-    weather_icon: {
-      type: 'String',
-    },
-    weather_emoji: {
-      type: 'String',
-    },
-    temperatureC: {
-      type: 'Number',
-    },
-    temperatureF: {
-      type: 'String',
-    },
-    temperatureC_feels_like: {
-      type: 'Number',
-    },
-    temperatureF_feels_like: {
-      type: 'Number',
-    },
-    cost_for_nomad_in_usd: {
-      type: 'Number',
-    },
-    cost_for_expat_in_usd: {
-      type: 'Number',
-    },
-    cost_for_local_in_usd: {
-      type: 'Number',
-    },
-    cost_for_family_in_usd: {
-      type: 'Number',
-    },
-    total_score: {
-      type: 'Number',
-    },
-    overall_score: {
-      type: 'Number',
-    },
-    cost_score: {
-      type: 'Number',
-    },
-    internet_score: {
-      type: 'Number',
-    },
-    leisure_quality: {
-      type: 'Number',
-    },
-    safety_level: {
-      type: 'Number',
-    },
+const placeSchema = new Schema<IPlace>({
+  image_lastmod: {
+    type: 'Number',
   },
-  { collection: 'Place' },
-);
+  region: {
+    type: 'String',
+  },
+  population: {
+    type: 'String',
+  },
+  descriptionFromReview: {
+    type: 'String',
+  },
+  slug: {
+    type: 'String',
+  },
+  short_slug: {
+    type: 'String',
+  },
+  long_slug: {
+    type: 'String',
+  },
+  users_count: {
+    type: 'Number',
+  },
+  users_count_est: {
+    type: 'Number',
+  },
+  users_count_been: {
+    type: 'Number',
+  },
+  users_count_been_est: {
+    type: 'Number',
+  },
+  boost: {
+    type: 'Number',
+  },
+  last_2_year_growth: {
+    type: 'Number',
+  },
+  image: {
+    type: 'String',
+  },
+  name_chinese: {
+    type: 'String',
+  },
+  name: {
+    type: 'String',
+  },
+  country_chinese: {
+    type: 'String',
+  },
+  air_quality_now: {
+    type: 'Number',
+  },
+  air_quality: {
+    type: 'Mixed',
+  },
+  latitude: {
+    type: 'String',
+  },
+  longitude: {
+    type: 'String',
+  },
+  country: {
+    type: 'String',
+  },
+  country_code: {
+    type: 'String',
+  },
+  country_slug: {
+    type: 'String',
+  },
+  state_code: {
+    type: 'String',
+  },
+  state_chinese: {
+    type: 'String',
+  },
+  state: {
+    type: 'String',
+  },
+  internet_speed: {
+    type: 'Number',
+  },
+  air_quality_score: {
+    type: 'Number',
+  },
+  air_quality_now_score: {
+    type: 'Number',
+  },
+  humidity: {
+    type: 'Number',
+  },
+  rank: {
+    type: 'Number',
+  },
+  weather_icon: {
+    type: 'String',
+  },
+  weather_emoji: {
+    type: 'String',
+  },
+  temperatureC: {
+    type: 'Number',
+  },
+  temperatureF: {
+    type: 'String',
+  },
+  temperatureC_feels_like: {
+    type: 'Number',
+  },
+  temperatureF_feels_like: {
+    type: 'Number',
+  },
+  cost_for_nomad_in_usd: {
+    type: 'Number',
+  },
+  cost_for_expat_in_usd: {
+    type: 'Number',
+  },
+  cost_for_local_in_usd: {
+    type: 'Number',
+  },
+  cost_for_family_in_usd: {
+    type: 'Number',
+  },
+  total_score: {
+    type: 'Number',
+  },
+  overall_score: {
+    type: 'Number',
+  },
+  cost_score: {
+    type: 'Number',
+  },
+  internet_score: {
+    type: 'Number',
+  },
+  leisure_quality: {
+    type: 'Number',
+  },
+  safety_level: {
+    type: 'Number',
+  },
+});
 
 const Place =
   (mongoose.models.Place as mongoose.Model<
