@@ -106,8 +106,18 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async jwt({ token }) {
+      const email = token?.email;
+      let role: 'user' | 'admin' = 'user';
+      if (email) {
+        const storedUser = await User.findOne({ email }).exec();
+        if (storedUser) {
+          role = storedUser.role;
+        }
+      }
+
       return {
         ...token,
+        role,
         name: token.name ?? null,
         email: token.email ?? null,
         picture: token.picture ?? null,

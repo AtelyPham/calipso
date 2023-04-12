@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-interface IPlace {
+export interface IPlace {
   image_lastmod: number;
   region: string;
   population: string;
@@ -51,7 +51,7 @@ interface IPlace {
   safety_level: number;
 }
 
-const tokenSchema = new Schema<IPlace>(
+const placeSchema = new Schema<IPlace>(
   {
     image_lastmod: {
       type: 'Number',
@@ -215,6 +215,6 @@ const Place =
         never
       >,
     any
-  >) || mongoose.model<IPlace>('Place', tokenSchema);
+  >) || mongoose.model<IPlace>('Place', placeSchema);
 
 export default Place;

@@ -7,6 +7,11 @@ declare module 'next-auth' {
      * The user's password
      */
     password?: string;
+
+    /**
+     * The user's role
+     */
+    role: 'admin' | 'user';
   }
 
   /**
