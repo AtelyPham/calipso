@@ -8,7 +8,7 @@ import User from '../../../models/User';
 import { hashPassword } from '../../../utils/hash';
 
 const POST = async (req: NextApiRequest, res: NextApiResponse) => {
-  const email = req.body;
+  const { email } = req.body;
 
   try {
     await db.connect();
@@ -22,6 +22,18 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
       const token = await Token.findOne({ userId: user._id });
 
       if (token) {
+        const createdAt = new Date(token.createdAt);
+
+        // Rate limit 1 minute for sending email
+        if (Date.now() - createdAt.getTime() < 60000) {
+          return res.status(400).json({
+            success: false,
+            message: `Please wait for ${
+              60 - Math.floor((Date.now() - createdAt.getTime()) / 1000)
+            } seconds before requesting again`,
+          });
+        }
+
         await token.deleteOne();
       }
 
@@ -40,7 +52,7 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
 
       console.log(link);
 
-      const res = await transporter.sendMail({
+      await transporter.sendMail({
         from: process.env.EMAIL_FROM,
         to: user.email,
         subject: 'Reset Password',
@@ -55,10 +67,9 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
         </div> 
         `,
       });
-      console.log(res);
     }
   } catch (error: any) {
-    return res.status(400).send({ message: error.message });
+    return res.status(400).send({ success: false, message: error.message });
   }
 
   // Success

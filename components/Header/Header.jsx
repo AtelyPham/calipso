@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import { Avatar, Button, Dropdown, Spinner } from 'flowbite-react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { CalipsoLogo } from '../CalipsoLogo';
-import { signOut, useSession } from 'next-auth/react';
 import styles from './Header.module.css';
 
 export function Header({ hasVideo = true, ...props }) {
@@ -15,6 +16,8 @@ export function Header({ hasVideo = true, ...props }) {
   );
 
   const { data: session, status } = useSession();
+
+  const router = useRouter();
 
   return (
     <div className={classNames('relative', styles.header, props.className)}>
@@ -70,26 +73,18 @@ export function Header({ hasVideo = true, ...props }) {
                   )}
                 </Dropdown.Header>
                 <Dropdown.Divider />
-                <Dropdown.Item>
-                  <a
-                    href={`/api/auth/signout`}
-                    onClick={e => {
-                      e.preventDefault();
-                      signOut();
-                    }}
-                  >
-                    Sign out
-                  </a>
+                <Dropdown.Item onClick={() => router.push(`/api/auth/signout`)}>
+                  Sign out
                 </Dropdown.Item>
               </Dropdown>
             ) : (
-              <Button pill={true} gradientMonochrome="info">
-                <Link href="/api/auth/signin">
+              <Link href="/api/auth/signin">
+                <Button pill={true} gradientMonochrome="info">
                   <span className="inline-flex items-center justify-center h-5 w-44">
                     Login
                   </span>
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             )}
           </div>
         </div>

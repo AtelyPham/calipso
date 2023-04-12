@@ -49,7 +49,7 @@ export default function route(req: NextApiRequest, res: NextApiResponse) {
 
     default: {
       return res.status(405).json({
-        error: `Method ${req.method} Not Allowed`,
+        message: `Method ${req.method} Not Allowed`,
       });
     }
   }

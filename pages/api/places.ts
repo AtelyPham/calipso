@@ -4,7 +4,7 @@ import mongoose from '../../libs/mongodb/mongoose';
 import Place from '../../models/Place';
 
 async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const { offset = 0, limit = 20 } = req.query;
+  const { offset = 0, limit = 10 } = req.query;
   const _offset = Number(offset);
   const _limit = Number(limit);
 
@@ -15,8 +15,14 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
   await mongoose.connect();
 
   const places = await Place.find().skip(_offset).limit(_limit).exec();
+  const total = await Place.countDocuments();
 
-  return res.status(200).json(places);
+  return res.status(200).json({
+    data: places,
+    offset,
+    limit,
+    total,
+  });
 }
 
 export default async function route(req: NextApiRequest, res: NextApiResponse) {

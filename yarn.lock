@@ -264,6 +264,16 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tailwindcss/typography@^0.5.9":
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.9.tgz#027e4b0674929daaf7c921c900beee80dbad93e8"
+  integrity sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==
+  dependencies:
+    lodash.castarray "^4.4.0"
+    lodash.isplainobject "^4.0.6"
+    lodash.merge "^4.6.2"
+    postcss-selector-parser "6.0.10"
+
 "@types/google.maps@3.49.1":
   version "3.49.1"
   resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.49.1.tgz#863cc43e11008eed5eed22eb2153528fac6cd435"
@@ -745,6 +755,11 @@ client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
+
+clsx@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -2002,6 +2017,11 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash.castarray@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.castarray/-/lodash.castarray-4.4.0.tgz#c02513515e309daddd4c24c60cfddcf5976d9115"
+  integrity sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -2560,7 +2580,7 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
-postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6:
+postcss-selector-parser@6.0.10, postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6:
   version "6.0.10"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
   integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
@@ -2679,6 +2699,13 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-toastify@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.2.tgz#293aa1f952240129fe485ae5cb2f8d09c652cf3f"
+  integrity sha512-PBfzXO5jMGEtdYR5jxrORlNZZe/EuOkwvwKijMatsZZm8IZwLj01YvobeJYNjFcA6uy6CVrx2fzL9GWbhWPTDA==
+  dependencies:
+    clsx "^1.1.1"
 
 react@^18.2.0:
   version "18.2.0"
